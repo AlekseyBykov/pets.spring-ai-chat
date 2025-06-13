@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  spring-ai-chat:
+    image: spring-ai-chat
+    container_name: spring-ai-chat
+    ports:
+      - "8080:8080"
+    environment:
+      - OLLAMA_BASE_URL=http://172.17.0.1:11434
+    networks:
+      - spring-ai-chat-net
+
+networks:
+  spring-ai-chat-net:
+    driver: bridge
