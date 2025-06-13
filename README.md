@@ -134,7 +134,6 @@ docker ps
 docker exec -it spring-ai-chat sh
 curl http://localhost:8080/swagger-ui/index.html
 ```
-
 ### Cleanup
 ```shell
 docker-compose down
