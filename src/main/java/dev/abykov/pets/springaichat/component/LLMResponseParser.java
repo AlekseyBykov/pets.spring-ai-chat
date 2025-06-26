@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LlmResponseParser {
+public class LLMResponseParser {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 

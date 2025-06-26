@@ -1,6 +1,5 @@
 package dev.abykov.pets.springaichat.component;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.abykov.pets.springaichat.model.ChatRequest;
 import dev.abykov.pets.springaichat.model.ChatResponse;
@@ -9,21 +8,20 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class LlmClient {
+public class LLMClient {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final RestTemplate restTemplate = new RestTemplate();
 
-    private final LlmResponseParser responseParser;
+    private final LLMResponseParser responseParser;
     private final String baseUrl;
     private final String model;
 
-    public LlmClient(
-            LlmResponseParser responseParser,
+    public LLMClient(
+            LLMResponseParser responseParser,
             @Value("${ai.base-url}") String baseUrl,
             @Value("${ai.model}") String model
     ) {

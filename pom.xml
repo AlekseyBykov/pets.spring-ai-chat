@@ -73,7 +73,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring.boot.version}</version>
                 <configuration>
-                    <mainClass>dev.abykov.pets.springaichat.SpringAiChatApplication</mainClass>
+                    <mainClass>dev.abykov.pets.springaichat.SpringAIChatApplication</mainClass>
                 </configuration>
             </plugin>
 

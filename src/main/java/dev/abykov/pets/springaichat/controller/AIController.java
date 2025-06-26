@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/ai")
-public class AiController {
+public class AIController {
 
     private final ChatService chatService;
 
-    public AiController(ChatService chatService) {
+    public AIController(ChatService chatService) {
         this.chatService = chatService;
     }
 

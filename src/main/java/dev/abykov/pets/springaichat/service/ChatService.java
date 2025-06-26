@@ -1,6 +1,6 @@
 package dev.abykov.pets.springaichat.service;
 
-import dev.abykov.pets.springaichat.component.LlmClient;
+import dev.abykov.pets.springaichat.component.LLMClient;
 import dev.abykov.pets.springaichat.model.ChatRequest;
 import dev.abykov.pets.springaichat.model.ChatResponse;
 import org.springframework.stereotype.Service;
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class ChatService {
 
-    private final LlmClient llmClient;
+    private final LLMClient llmClient;
 
-    public ChatService(LlmClient llmClient) {
+    public ChatService(LLMClient llmClient) {
         this.llmClient = llmClient;
     }
 

@@ -10,6 +10,23 @@ Tech Stack:
 - Ollama + Mistral (or other local models)
 - Swagger/OpenAPI
 
+## Memory & System Requirements
+Running local LLMs like Mistral via Ollama can consume significant RAM and CPU. 
+A minimum of **16 GB RAM** is recommended for smooth operation, especially if using quantized models like `Q4_0`.
+
+If your laptop has 8 GB RAM, you might experience:
+
+- Long response times (3–7 minutes)
+- High CPU load
+- Overheating or thermal throttling
+
+You can monitor system usage via:
+```shell
+top
+htop
+watch -n1 free -h
+```
+
 ## Quick Start
 ### 1. Clone the project
 
@@ -20,6 +37,12 @@ cd pets.spring-ai-chat
 
 ### 2. Install OLLaMA
 Follow the official instructions: https://ollama.com/download
+
+For example:
+```shell
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
 Then verify it's available from the command line:
 ```shell
 which ollama
@@ -88,6 +111,23 @@ Sample request:
 ```
 
 ## Troubleshooting
+
+### Ollama runs automatically?
+
+On some Linux systems, Ollama may run as a background service, causing port conflicts when you try to start it manually.
+To check if Ollama is already running:
+```shell
+sudo lsof -i :11434
+```
+To stop it:
+```shell
+sudo pkill -f ollama
+```
+Then restart it manually with public binding:
+```shell
+OLLAMA_HOST=0.0.0.0 ollama serve
+```
+This is important to allow communication from Docker containers to the local LLM API.
 
 ### Model not pulled / Ollama server not responding
 
