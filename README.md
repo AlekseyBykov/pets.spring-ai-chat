@@ -129,6 +129,22 @@ OLLAMA_HOST=0.0.0.0 ollama serve
 ```
 This is important to allow communication from Docker containers to the local LLM API.
 
+### Disable Ollama auto-start
+
+On some systems, Ollama is installed as a `systemd` service and starts automatically on boot.  
+To fully stop and disable it from auto-starting:
+
+```bash
+sudo systemctl stop ollama
+sudo systemctl disable ollama
+```
+Then you can start it manually when needed:
+
+```bash
+OLLAMA_HOST=0.0.0.0 ollama serve
+```
+This ensures no port conflicts and explicit control over resource usage.
+
 ### Model not pulled / Ollama server not responding
 
 You might see an error like this:
@@ -179,3 +195,15 @@ curl http://localhost:8080/swagger-ui/index.html
 docker-compose down
 docker rmi spring-ai-chat
 ```
+## Disclaimer
+
+This project is **experimental and for research only**.
+
+Running large language models locally (especially on CPU) can:
+
+- Consume high CPU and RAM resources
+- Cause excessive heating
+- Potentially lead to hardware damage or reduced lifespan if used continuously without proper cooling
+
+Use with caution. Monitor temperatures and system load. 
+The author is not responsible for any damage caused by misuse or excessive load.
